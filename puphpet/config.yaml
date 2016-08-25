@@ -20,8 +20,8 @@ vagrantfile:
                         update_guest_tools: 0
                 machines:
                     vflm_r1rzmxb9opxa:
-                        id: startphp_
-                        hostname: startphp_.local
+                        id: startphp
+                        hostname: startphp.local
                         network:
                             private_network: 192.168.56.111
                             forwarded_port:
@@ -116,9 +116,9 @@ nginx:
     upstreams: {  }
     vhosts:
         nxv_oe3t4efbc54o:
-            server_name: startphp_.local
+            server_name: startphp.local
             server_aliases:
-                - www.startphp_.local
+                - www.startphp.local
             www_root: /var/www/
             listen_port: '80'
             index_files:
@@ -178,9 +178,9 @@ apache:
         - rewrite
     vhosts:
         av_1nbvxpfr64tq:
-            servername: startphp_.local
+            servername: startphp.local
             serveraliases:
-                - www.startphp_.local
+                - www.startphp.local
             docroot: /var/www
             port: '80'
             setenv:
@@ -422,4 +422,3 @@ solr:
     settings:
         version: 4.10.2
         port: '8984'
-
