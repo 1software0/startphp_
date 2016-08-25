@@ -8,7 +8,7 @@ Son los archivos necesarios para poder desarrollar con el framework [Ocrend Fram
 
 ## Instalación:
 En la carpeta en donde se va a inicializar el proyecto:
-´´ git clone https://github.com/1software0/startphp_.git ´´
+$ ` git clone https://github.com/1software0/startphp_.git `
 
 Editar el archivo: './puphpet/config.yaml' y poner los datos del proyecto que
 se necesiten, correspondientes a los datos del proyecto.
@@ -16,11 +16,11 @@ se necesiten, correspondientes a los datos del proyecto.
 Modificar el archivo: './app/bd/db.sql' para inicializar la base de datos, con
 la base de datos, las tablas y las entradas necesarias para el proyecto.
 
-´´ cd tuproyecto ´´
+$ ` cd tuproyecto `
 
 Ahora a inicializar la máquina virtual:
 
-´´ Vagrant up ´´
+$ ` Vagrant up `
 
 Una vez terminado verificamos que el servidor este corriendo.
 
