@@ -19,14 +19,14 @@ vagrantfile:
                         check_guest_tools: 0
                         update_guest_tools: 0
                 machines:
-                    vflm_8yyyksy920yh:
-                        id: test
-                        hostname: test.local
+                    vflm_r1rzmxb9opxa:
+                        id: startphp_
+                        hostname: startphp_.local
                         network:
-                            private_network: 192.168.56.121
+                            private_network: 192.168.56.111
                             forwarded_port:
-                                vflmnfp_n9ollpsuby20:
-                                    host: '5492'
+                                vflmnfp_h9oxzl8f6u7q:
+                                    host: '6194'
                                     guest: '22'
                         memory: '512'
                         cpus: '1'
@@ -38,7 +38,7 @@ vagrantfile:
                     - '--verbose'
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
         synced_folder:
-            vflsf_pwsaf2p5ggg6:
+            vflsf_5opeau01dh1q:
                 source: ./app
                 target: /var/www
                 sync_type: default
@@ -96,7 +96,7 @@ locale:
         locales:
             - en_GB.UTF-8
             - en_US.UTF-8
-        timezone: UTC
+        timezone: America/Mexico_City
 firewall:
     install: '1'
     rules: {  }
@@ -115,11 +115,11 @@ nginx:
         names_hash_bucket_size: 128
     upstreams: {  }
     vhosts:
-        nxv_qjjo6qnn0rco:
-            server_name: test.local
+        nxv_oe3t4efbc54o:
+            server_name: startphp_.local
             server_aliases:
-                - www.test.local
-            www_root: /var/www/html
+                - www.startphp_.local
+            www_root: /var/www/
             listen_port: '80'
             index_files:
                 - index.html
@@ -135,7 +135,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_x10pu2spjcxe:
+                nxvl_wbxkhq3uf336:
                     location: /
                     try_files:
                         - $uri
@@ -146,7 +146,7 @@ nginx:
                     fastcgi_split_path: ''
                     proxy: ''
                     proxy_redirect: ''
-                nxvl_267zhbuozfs1:
+                nxvl_6lrl9b4yj2om:
                     location: '~ \.php$'
                     try_files:
                         - $uri
@@ -177,9 +177,11 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_1dytzifrnz38:
-            servername: test.local
-            docroot: /var/www/html
+        av_1nbvxpfr64tq:
+            servername: startphp_.local
+            serveraliases:
+                - www.startphp_.local
+            docroot: /var/www
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -194,8 +196,8 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_qgyfgxz8kevi:
-                    path: /var/www/html
+                avd_rxm2qxew2j1y:
+                    path: /var/www
                     options:
                         - Indexes
                         - FollowSymlinks
@@ -206,7 +208,7 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_fiecloebjfhw:
+                        avdfm_1zmux4mgqrv4:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
@@ -235,7 +237,7 @@ php:
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_hhc8vp7bzqhu:
+        phpfp_kbumzdfbrqi0:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -278,7 +280,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        rv_0y0nlkh3iafp:
+        rv_v0zr9d1qjqgx:
             default: '1'
             bundler: '1'
             version: 1.9.3
@@ -288,7 +290,8 @@ ruby:
                 - vine@0.2
 python:
     install: '1'
-    packages: {  }
+    packages:
+        - pip
     versions: {  }
 nodejs:
     install: '0'
@@ -316,7 +319,21 @@ mariadb:
         version: '10.1'
         root_password: '123'
         override_options: {  }
-    adminer: '0'
+    adminer: 0
+    users:
+        mariadbnu_5693qj6x690l:
+            name: dbuser
+            password: '123'
+    databases:
+        mariadbnd_s3m9ygtt2z1i:
+            name: dbname
+            sql: ''
+    grants:
+        mariadbng_apfwa4wufaw4:
+            user: dbuser
+            table: '*.*'
+            privileges:
+                - ALL
 mysql:
     install: '1'
     settings:
@@ -325,15 +342,15 @@ mysql:
         override_options: {  }
     adminer: 0
     users:
-        mysqlnu_x69gf10dw3uk:
+        mysqlnu_gpcvmll4rbds:
             name: dbuser
             password: '123'
     databases:
-        mysqlnd_wqmdc1s0lxxw:
-            name: test
+        mysqlnd_gaedwbdwhork:
+            name: main
             sql: ./app/bd/db.sql
     grants:
-        mysqlng_whx5mzj0knyn:
+        mysqlng_j8lxqvo5yf2c:
             user: dbuser
             table: '*.*'
             privileges:
@@ -398,10 +415,11 @@ elastic_search:
         version: 2.3.1
         java_install: true
     instances:
-        esi_uqbjsund3ogj:
+        esi_2x4lrezitr12:
             name: es-01
 solr:
     install: '0'
     settings:
         version: 4.10.2
         port: '8984'
+

@@ -8,6 +8,7 @@ Son los archivos necesarios para poder desarrollar con el framework [Ocrend Fram
 
 ## Instalación:
 En la carpeta en donde se va a inicializar el proyecto:
+
 $ ` git clone https://github.com/1software0/startphp_.git `
 
 Editar el archivo: './puphpet/config.yaml' y poner los datos del proyecto que
