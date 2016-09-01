@@ -34,4 +34,13 @@ $ ` Vagrant up `
 
 Una vez terminado verificamos que el servidor este corriendo.
 
+Para la configuración de la base de datos:
+
+``` shel
+vagrant ssh
+cd /var/www/bd
+mysql -uroot -p123 < db.sql
+exit
+```
+
 http://test.local/ ó si se modificó http://tuproyecto.local/
